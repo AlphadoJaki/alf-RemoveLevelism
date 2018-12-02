@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+このファイルに含まれる変更点はプレイヤー有利なレベル制を排除するため、デフォルトではOFFにしています。
+
+(1) 低レベル帯の気温耐性の除去
+(2) デスペナルティー：アトリビュート低下の低レベル用緩和を除去
+(3) デスペナルティー：HP・スタミナ上限低下を低レベル帯にも適用
+
+それぞれ、導入する場合は「(*)を導入するためにはこの行を消します。」と書かれた行を2つ消してください。
+編集にはnotepad++を使用することを強くおすすめします。
+
+-->
+<configs>
+<!-- (1)を導入するためにはこの行を消します。 1/2
+<setattribute xpath="/*/*[@name='buffNewbieCoat']" name="hidden">true</setattribute>
+<set xpath="/*/*[@name='buffNewbieCoat']/*[requirement/@name='PlayerLevel']/passive_effect/@value">0</set>
+<set xpath="/*/*[@name='buffNewbieCoat']/*/triggered_effect/*/@value">2</set>
+     (1)を導入するためにはこの行を消します。 2/2 -->
+
+
+<!-- (2)を導入するためにはこの行を消します。 1/2
+<set xpath="/*/*[@name='buffNearDeathTraumaCalculate']/effect_group/*/*[@name='PlayerLevel']/@value">2</set>
+<append xpath="/*/*[@name='buffNearDeathTraumaCalculate']/effect_group/*[@value='4']">
+	<requirement name="CVarCompare" cvar="NearDeathTraumaCounter" operation="LTE" value="7200"/>
+</append>
+<append xpath="/*/*[@name='buffNearDeathTraumaCalculate']/effect_group">
+	<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" target="self" cvar="NearDeathTraumaEffect" operation="set" value="5">
+		<requirement name="CVarCompare" cvar="NearDeathTraumaCounter" operation="GT" value="7200"/>
+		<requirement name="CVarCompare" cvar="NearDeathTraumaCounter" operation="LTE" value="9000"/>
+		<requirement name="PlayerLevel" operation="GTE" value="2"/>
+	</triggered_effect>
+	<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" target="self" cvar="NearDeathTraumaEffect" operation="set" value="6">
+		<requirement name="CVarCompare" cvar="NearDeathTraumaCounter" operation="GT" value="9000"/>
+		<requirement name="CVarCompare" cvar="NearDeathTraumaCounter" operation="LTE" value="10800"/>
+		<requirement name="PlayerLevel" operation="GTE" value="2"/>
+	</triggered_effect>
+	<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" target="self" cvar="NearDeathTraumaEffect" operation="set" value="7">
+		<requirement name="CVarCompare" cvar="NearDeathTraumaCounter" operation="GT" value="10800"/>
+		<requirement name="CVarCompare" cvar="NearDeathTraumaCounter" operation="LTE" value="12600"/>
+		<requirement name="PlayerLevel" operation="GTE" value="2"/>
+	</triggered_effect>
+	<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" target="self" cvar="NearDeathTraumaEffect" operation="set" value="8">
+		<requirement name="CVarCompare" cvar="NearDeathTraumaCounter" operation="GT" value="12600"/>
+		<requirement name="CVarCompare" cvar="NearDeathTraumaCounter" operation="LTE" value="14400"/>
+		<requirement name="PlayerLevel" operation="GTE" value="2"/>
+	</triggered_effect>
+	<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" target="self" cvar="NearDeathTraumaEffect" operation="set" value="9">
+		<requirement name="CVarCompare" cvar="NearDeathTraumaCounter" operation="GT" value="14400"/>
+		<requirement name="PlayerLevel" operation="GTE" value="2"/>
+	</triggered_effect>
+</append>
+     (2)を導入するためにはこの行を消します。 2/2 -->
+
+
+<!-- (3)を導入するためにはこの行を消します。 1/2
+<set xpath="/*/*[@name='buffNearDeathRegen']/effect_group/*/*/@value">1</set>
+<set xpath="/*/*[@name='buffNearDeathRegen']/effect_group/*[@buff='buffNearDeathRegen']/*/@value">2</set>
+     (3)を導入するためにはこの行を消します。 2/2 -->
+</configs>

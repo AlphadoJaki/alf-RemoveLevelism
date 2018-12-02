@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+	<ModInfo>
+		<Name value="Remove Levelism" />
+		<Description value="Remove required level for attributes. Also, can remove positive effect of levelism." />
+		<Author value="Alphado-Jaki" />
+		<Version value="17eb208.0" />
+	</ModInfo>
+</xml>
+<!--
+<xml>
+	<ModInfo>
+		<Name value="レベル制解除" />
+		<Description value="アトリビュートのレベル制限を撤廃します。さらに、プレイヤー有利なレベル制も撤廃することができます。" />
+		<Author value="アルファド" />
+		<Version value="17eb208.0" />
+	</ModInfo>
+</xml>
+-->
